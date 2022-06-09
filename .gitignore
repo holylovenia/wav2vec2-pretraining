@@ -129,4 +129,8 @@ dmypy.json
 .pyre/
 
 # Local stuff
+cache/
 data/
+eval/
+log/
+save/
