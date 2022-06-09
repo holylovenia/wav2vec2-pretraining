@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES=7 python eval.py \
+    --model_name_or_path=CAiRE/wav2vec2-large-xlsr-53-cantonese \
+    --train_manifest_path=data/common_voice_zh-HK/preprocessed_validated_train.csv \
+    --valid_manifest_path=data/common_voice_zh-HK/preprocessed_validated_dev.csv \
+    --test_manifest_path=data/common_voice_zh-HK/preprocessed_validated_test.csv \
+    --cache_dir_name cache \
+    --preprocessing_num_workers=16 \
+    --audio_column_name=path --text_column_name=sentence \
+    --eval_accumulation_steps=20 \
+    --per_device_train_batch_size=8 --per_device_eval_batch_size=16 \
+    --dataloader_num_workers=8 --dataloader_pin_memory --group_by_length \
+    --seed=14045 --num_train_epochs=5 --learning_rate=5e-5 --output_dir=eval
